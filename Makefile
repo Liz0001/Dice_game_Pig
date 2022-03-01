@@ -60,7 +60,7 @@ clean-all: clean clean-doc
 #
 pylint:
 	@$(call MESSAGE,$@)
-	-cd guess && $(PYTHON) -m pylint *.py
+	-cd game && $(PYTHON) -m pylint *.py
 
 flake8:
 	@$(call MESSAGE,$@)
@@ -74,7 +74,7 @@ lint: flake8 pylint
 #
 black:
 	@$(call MESSAGE,$@)
-	 $(PYTHON) -m black guess/ test/
+	 $(PYTHON) -m black game/ test/
 
 codestyle: black
 
