@@ -1,55 +1,35 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+"""Let's play a game of 'Pig'."""
 
-"""Guess the number I am thinking of."""
-
-import random
+import player
+import intelligence
+import dicehand
+import score
 
 
 class Game:
-    """Example of dice class."""
-
-    low_number = 1
-    high_number = 100
-    the_number = None
+    """Game class is where the magic happens."""
 
     def __init__(self):
         """Init the object."""
-        random.seed()
+        self.p = player.Player()
+        # init the intelligence
+        # init the dicehand (dice init in dicehand)
+        # init score
 
     def start(self):
-        """Start the game and randomize a new number."""
-        self.the_number = random.randint(self.low_number, self.high_number)
+        """(Re)Starts the game (all scores to zero)."""
+        self.p.score = 0
+        # intelligence score to zero also
 
     def cheat(self):
         """Get the number."""
-        return self.the_number
+        return 3
 
-    def low(self):
-        """Get the lowest number possible."""
-        return self.low_number
+    def change_the_name(self, arg):
+        """Name change for the player."""
 
-    def high(self):
-        """Get the highest number possible."""
-        return self.high_number
-
-    def guess(self, a_number):
-        """
-        Check it the guess is correct, higher or lower than the actual number.
-
-        Raise an exception if the number is out of range.
-        Raise an exception if the number is not an integer.
-        """
-        if not isinstance(a_number, int):
-            raise TypeError("The number should be an integer.")
-
-        if not self.low_number <= a_number <= self.high_number:
-            raise ValueError("The number is higher/lower than max/min value.")
-
-        msg = "Too Low"
-        if a_number == self.the_number:
-            msg = "Correct"
-        elif a_number > self.the_number:
-            msg = "Too High"
-
-        return msg
+    def roll_dice(self):
+        """Rolling the dice."""
+        return 6

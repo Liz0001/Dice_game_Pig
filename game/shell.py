@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
-"""Using the cmd module to create a shell for the main program.
+"""
+Using the cmd module to create a shell for the main program.
 
 You can read about the cmd module in the docs:
     cmd — support for line-oriented command interpreters
@@ -13,10 +13,26 @@ import game
 
 
 class Shell(cmd.Cmd):
-    """Example of class with command actions to roll a dice."""
+    """Shell class with command actions to play a dice game."""
 
-    intro = "Welcome to the game. Type help or ? to list commands.\n"
-    prompt = "(game) "
+    intro = "Welcome to the game. Type 'help' to list commands."
+    prompt = "\n(Pig) "
+    rules = """
++-----------------------------------------------------------+
+|  There are 2 players: You and the opponent.               |
+|                                                           |
+|  Players take turns to roll a dice as many times as       |
+|  they wish, adding all roll results to a running total,   |
+|  but if the player rolls a 1 the gained score for the     |
+|  turn will be lost.                                       |
+|                                                           |
+|  Who gets to 100 points first wins the game.              |
++-----------------------------------------------------------+
+"""
+
+    die = ("\t+---+\n"
+           "\t| {} |\n"
+           "\t+---+")
 
     def __init__(self):
         """Init the object."""
@@ -24,35 +40,52 @@ class Shell(cmd.Cmd):
         self.game = game.Game()
 
     def do_start(self, _):
-        """Start the game with a new number."""
+        """Start a new game."""
         msg = (
-            "I am ready and is now thinking of a new secret number"
-            " between {} and {}."
+            "Here we go, let\'s start rolling."
         )
         self.game.start()
-        print(msg.format(self.game.low(), self.game.high()))
+        print(msg.format(self.game.start()))
+
+    def do_rules(self, _):
+        """Rules of the game."""
+        print(self.rules)
+
+    def do_roll(self, _):
+        """Roll the dice."""
+        print("You have rolled..")
+        print(self.die.format(self.game.roll_dice()))
+
+    def do_hold(self, _):
+        """Hold the roll results, add to total score."""
+        pass
+
+    def do_score(self, _):
+        """See the score bord."""
+        pass
+
+    def do_level(self, _):
+        """Change the difficulty of the game."""
+        pass
+
+    def do_history(self, _):
+        """See the game history."""
+        pass
+
+    def do_name(self, _):
+        """Player can change their name here."""
+        pass
 
     def do_cheat(self, _):
-        """Cheat to view the secret number."""
-        print("Cheater... the number is {}.".format(self.game.cheat()))
+        """Have a sneak peek at the next roll."""
+        print("Cheater... the next roll is...")
+        print(self.die.format(self.game.cheat()))
 
-    def do_guess(self, arg):
-        """Do a guess of a number."""
-        msg = "Missing argument on the number you are guessing. Try 'guess 42'."
-        if not arg:
-            print(msg)
-            return
-
-        a_number = int(arg)
-        try:
-            print("Your'e guess is -> {}".format(self.game.guess(a_number)))
-        except ValueError as error:
-            print(error)
-
+    # End of the game functionality: exit, quit, q, and EOF
     def do_exit(self, _):
         # pylint: disable=no-self-use
         """Leave the game."""
-        print("Bye bye - see ya soon again")
+        print("Bye bye")
         return True
 
     def do_quit(self, arg):
