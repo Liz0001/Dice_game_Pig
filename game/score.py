@@ -7,7 +7,6 @@ class score:
     _score = 0
 
     def __init__(self, player: Player):
-        """Player initiated with default name value."""
         self._score = player.get_score()
 
     def keep_score(self, player_score):
