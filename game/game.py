@@ -12,27 +12,37 @@ class Game:
     """Game class is where the magic happens."""
 
     def __init__(self):
-        """Init the object."""
-        self.p = player.Player()
-        # init the intelligence
-        # init the dicehand (dice init in dicehand)
-        # init score
+        """Init the objects."""
+        self.player = player.Player()
+        self.intelli = intelligence.Intelligence()
+        self.dicehand = dicehand.DiceHand()
 
-    # def start(self):
-    #     """(Re)Starts the game (all scores to zero)."""
-    #     self.p.score = 0
-    #     # intelligence score to zero also
-    #     # init the score (one round history)
-        
+    def start(self):
+        """(Re)Starts the game (all scores to zero)."""
+        # Name of the function call
+        if ((self.player.get_score() and self.intelli.get_score()) != 0):
+            self.player.score = 0
+            self.intelli.score = 0
+            # save the current score also
 
-    # def cheat(self):
-    #     """Get the number."""
-    #     return 3
+        # self.score = score.score()
 
-    # def change_the_name(self, arg):
-    #     """Name change for the player."""
+    def cheat(self):
+        """Get the number."""
+        return 3
 
-    # def roll_dice(self):
-    #     """Rolling the dice."""
-    #     return 6
+    def change_the_name(self, arg):
+        """Name change for the player."""
+        self.player.change_name(arg)
 
+    def get_name(self):
+        """Get the players name."""
+        return self.player.get_name()
+
+    def roll_dice(self):
+        """Rolling the dice."""
+        return 6
+
+    def get_history(self):
+        """Show players history."""
+        pass
