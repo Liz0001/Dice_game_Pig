@@ -42,7 +42,7 @@ class Shell(cmd.Cmd):
     def do_start(self, _):
         """Start a new game."""
         msg = (
-            "Here we go, let\'s start rolling."
+            "Here we go, let\'s start rolling.\n"
         )
         self.game.start()
         print(msg.format(self.game.start()))
@@ -72,9 +72,13 @@ class Shell(cmd.Cmd):
         """See the game history."""
         pass
 
-    def do_name(self, _):
-        """Player can change their name here."""
-        pass
+    def do_name(self, new_name):
+        """Player can change their name here. name [new name]."""
+        if new_name:
+            self.game.change_the_name(new_name)
+            print("Your new name: ", self.game.get_name())
+        else:
+            print("Hi " + self.game.get_name())
 
     def do_cheat(self, _):
         """Have a sneak peek at the next roll."""
