@@ -73,7 +73,7 @@ class Shell(cmd.Cmd):
                   + "\n")
             if self.game.get_player_score() >= 100:
                 print("\t" + self.game.get_name() + "is the winner with score: " +
-                  str(self.game.get_player_score()))
+                    str(self.game.get_player_score()))
             else:
                 print("\Bot won with score: " + str(self.game.get_intelligence_score()))
             print("\n\n\tCongrats!\n\n")
@@ -93,9 +93,6 @@ class Shell(cmd.Cmd):
             print(f"Difficulty set to {difficulty}")
         else:
             print("Invalid difficulty. Only 'easy' and 'hard' allowed")
-        
-
-
 
     def do_history(self, _):
         """See the game history."""
