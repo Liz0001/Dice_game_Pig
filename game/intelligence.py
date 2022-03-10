@@ -7,6 +7,7 @@ from dice import Dice
 """
 
 
+
 class Intelligence:
     """
         Printing out the turn for the bot.

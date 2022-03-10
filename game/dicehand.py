@@ -3,6 +3,8 @@ import random
 
 
 class DiceHand:
+    
+    cheat_number = 0
 
     def __init__(self) -> None:
         self.dice = Dice()
@@ -17,10 +19,12 @@ class DiceHand:
             self.check_turn = 2
 
     def keep_rolling(self, input: bool):
-        """ 
-            Confirm from the player if he wants to roll.
-        """
-        if input:
+        """ Confirm from the player if he wants to roll. """
+        if self.cheat_number > 0:
+            self.temp = self.cheat_number
+            self.cheat_number = 0
+            return self.temp
+        elif input:
             return self.dice.roll()
         else:
             self.dice.roll_count = 0
@@ -28,11 +32,7 @@ class DiceHand:
         return None
 
     def check_hand(self, cheat: bool):
-        if cheat:
-            if self.check_turn > 0:
-                self.check_turn -= 1
-                return random.randint(1, 6)
-            else:
-                raise Exception("Cheat not available for this turn")
-        else:
-            return None
+        """Cheat or not."""
+        if self.cheat_number == 0:
+            self.cheat_number = self.keep_rolling(True)
+        return self.cheat_number
