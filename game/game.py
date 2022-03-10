@@ -29,7 +29,7 @@ class Game:
 
     def cheat(self):
         """Get the number."""
-        return 3
+        return self.dicehand.check_hand(True)
 
     def change_the_name(self, arg):
         """Name change for the player."""
@@ -41,7 +41,7 @@ class Game:
 
     def roll_dice(self):
         """Rolling the dice."""
-        return 6
+        return self.dicehand.keep_rolling(True)
 
     def get_history(self):
         """Show players history."""
