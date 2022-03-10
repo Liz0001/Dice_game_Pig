@@ -61,11 +61,21 @@ class Shell(cmd.Cmd):
     def do_hold(self, _):
         """Hold the roll results, add to total score."""
         self.game.hold_score()
+        if self.game.who_is_the_winner():
+            print("\n***************************")
+            print("WE HAVE A   W I N N E R !!!")
+            print("Current score, Game " + str(self.game.current_game_is()) + "\n")
+            print("\t" + self.game.get_name() + ": " +
+                  str(self.game.get_player_score()))
+            print("\tOpponent: " + str(self.game.get_intelligence_score()))
+            print("\n\n\tCongrats!\n\n")
+            self.do_start(True)
 
     def do_score(self, _):
         """See the score bord."""
         print("Current score, Game " + str(self.game.current_game_is()) + "\n")
-        print("\t" + self.game.get_name() + ": " + str(self.game.get_player_score()))
+        print("\t" + self.game.get_name() + ": " +
+              str(self.game.get_player_score()))
         print("\tOpponent: " + str(self.game.get_intelligence_score()))
 
     def do_level(self, _):

@@ -2,7 +2,9 @@ import random
 
 """ Creating the intellegence for the computer a s to how it would be playing and making decisions """
 
+
 class Intelligence:
+    """Opponent."""
 
     def __init__(self) -> None:
         """

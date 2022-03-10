@@ -10,6 +10,7 @@ import score
 
 class Game:
     """Game class is where the magic happens."""
+
     running_score = 0
     th_game = 1
 
@@ -18,18 +19,17 @@ class Game:
         self.player = player.Player()
         self.intelli = intelligence.Intelligence()
         self.dicehand = dicehand.DiceHand(cheat)
+        # self.score_board = score.Score()
 
     def start(self):
         """(Re)Starts the game (all scores to zero)."""
-        # Name of the function call
         if (self.player.get_score() > 0 or self.intelli.sum_scores > 0):
             self.player.score = 0
             self.intelli.sum_scores = 0
             self.th_game += 1
-            # save the current score also
+            # SAVE the current SCORE BY initiating START
 
         self.running_score = 0
-        # self.score = score.score()
 
     def cheat(self):
         """Get the number."""
@@ -44,7 +44,7 @@ class Game:
         return self.player.get_name()
 
     def roll_dice(self):
-        """Rolling the dice."""
+        """Roll the dice."""
         return self.dicehand.keep_rolling(True)
 
     def get_history(self):
@@ -60,7 +60,7 @@ class Game:
             self.running_score += run_score
 
     def hold_score(self):
-        """Add running score to total. Opponent's time"""
+        """Add running score to total. Opponent's turn."""
         self.player.add_score(self.running_score)
         self.running_score = 0
         # hand over the turn to computer
@@ -74,5 +74,10 @@ class Game:
         return self.intelli.sum_scores
 
     def current_game_is(self):
-        """What number is this game now?."""
+        """Game number."""
         return self.th_game
+
+    def who_is_the_winner(self):
+        """Is someone winning."""
+        if self.player.get_score() >= 100 or self.intelli.sum_scores >= 100:
+            return True
