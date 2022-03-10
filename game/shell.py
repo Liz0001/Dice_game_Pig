@@ -58,6 +58,7 @@ class Shell(cmd.Cmd):
         print(self.die.format(a_roll))
         self.game.add_running_score(a_roll)
 
+
     def do_hold(self, _):
         """Hold the roll results, add to total score."""
         self.game.hold_score()
@@ -78,9 +79,16 @@ class Shell(cmd.Cmd):
               str(self.game.get_player_score()))
         print("\tOpponent: " + str(self.game.get_intelligence_score()))
 
-    def do_level(self, _):
+    def do_level(self, difficulty):
         """Change the difficulty of the game."""
-        pass
+        if difficulty in ['easy', 'hard']:
+            self.game.dicehand.set_difficulty(difficulty)
+            print(f"Difficulty set to {difficulty}")
+        else:
+            print("Invalid difficulty. Only easy and hard allowed")
+        
+
+
 
     def do_history(self, _):
         """See the game history."""
@@ -96,8 +104,11 @@ class Shell(cmd.Cmd):
 
     def do_cheat(self, _):
         """Have a sneak peek at the next roll."""
-        print("Cheater... the next roll is...")
-        print(self.die.format(self.game.cheat()))
+        try:
+            print("Cheater... the next roll is...")
+            print(self.die.format(self.game.cheat()))
+        except Exception:
+            print("Cheats used for this turn")
 
     # End of the game functionality: exit, quit, q, and EOF
     def do_exit(self, _):

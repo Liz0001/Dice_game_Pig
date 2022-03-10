@@ -18,8 +18,7 @@ class Game:
         """Init the objects."""
         self.player = player.Player()
         self.intelli = intelligence.Intelligence()
-        self.dicehand = dicehand.DiceHand(cheat)
-        # self.score_board = score.Score()
+        self.dicehand = dicehand.DiceHand()
 
     def start(self):
         """(Re)Starts the game (all scores to zero)."""
@@ -47,6 +46,8 @@ class Game:
         """Roll the dice."""
         return self.dicehand.keep_rolling(True)
 
+    
+
     def get_history(self):
         """Show players history."""
         pass
@@ -56,6 +57,7 @@ class Game:
         if run_score == 1:
             self.running_score = 0
             # turn goes to computer!!!!!
+            self.intelli.roll_dice_bot()
         else:
             self.running_score += run_score
 
