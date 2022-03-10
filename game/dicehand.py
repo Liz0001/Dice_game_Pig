@@ -25,7 +25,7 @@ class DiceHand:
             self.dice.turn = 0
         return None
 
-    def check_hand(self, cheat: bool, ):
+    def check_hand(self, cheat: bool):
         if cheat:
             if self.check_turn > 0:
                 self.check_turn -= 1

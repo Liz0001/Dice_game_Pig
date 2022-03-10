@@ -91,6 +91,7 @@ class Shell(cmd.Cmd):
             print("Your new name: ", self.game.get_name())
         else:
             print("Hi " + self.game.get_name())
+        self.prompt = f"\n({self.game.get_name()}) "
 
     def do_cheat(self, _):
         """Have a sneak peek at the next roll."""

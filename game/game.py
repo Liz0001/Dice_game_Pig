@@ -57,7 +57,7 @@ class Game:
         """Add to running score till player hits 1."""
         if run_score == 1:
             self.running_score = 0
-            # turn goes to computer!!!!!
+            print(f"Your turn is over. {self.intelli.computer_name} will be playing now")
             self.intelli.roll_dice_bot()
         else:
             self.running_score += run_score
