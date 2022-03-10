@@ -58,9 +58,9 @@ class Shell(cmd.Cmd):
         print(self.die.format(a_roll))
         self.game.add_running_score(a_roll)
 
-
     def do_hold(self, _):
         """Hold the roll results, add to total score."""
+        print("Saving score, opponents turn.")
         self.game.hold_score()
         if self.game.who_is_the_winner():
             print("\n***************************")
@@ -85,7 +85,7 @@ class Shell(cmd.Cmd):
             self.game.dicehand.set_difficulty(difficulty)
             print(f"Difficulty set to {difficulty}")
         else:
-            print("Invalid difficulty. Only easy and hard allowed")
+            print("Invalid difficulty. Only 'easy' and 'hard' allowed")
         
 
 
