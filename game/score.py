@@ -1,29 +1,29 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Let's play a game of 'Pig'."""
 from player import Player
 
 
 class Score:
     """Score class."""
 
-    _score = 0
+    games = []
+    game_number = 0;
 
-    def __init__(self, player: Player):
-        """ ..."""
-        self._score = player.get_score()
-
-    def keep_score(self, player_score):
+    def keep_score(self, player: Player, score):
         """..."""
-        self._score = player_score
+        self.games[self.game_number] = [player, score]
+        self.game_number = self.game_number + 1
 
-    def compare_score(self, player: Player):
+    def compare_score(self, game1, game2):
         """..."""
-        if(self._score > player.get_score()):
-            print(player.get_name() + ' scored higher')
+        score1 = self.games[game1][1]
+        score2 = self.games[game2][1]
+        if(score2 > score1):
+            print(self.games[game1][0].get_name() + ' is lower than ' + self.games[game2][0].get_name())
         else:
-            print(player.get_name() + ' scored lower')
+            print(self.games[game2][0].get_name() + ' is lower than ' + self.games[game1][0].get_name())
 
-    def show_score(self):
+
+    def show_score(self, game):
         """..."""
-        return self._score
+        return self.games[game][1]
