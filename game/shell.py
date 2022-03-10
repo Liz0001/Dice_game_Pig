@@ -42,9 +42,9 @@ class Shell(cmd.Cmd):
     def do_start(self, _):
         """Start a new game."""
         msg = (
-            "Here we go, let\'s start rolling.\n"
+            "\nHere we go, let\'s start rolling."
+            "\nA new game has started!"
         )
-        # self.game.start()
         print(msg.format(self.game.start()))
 
     def do_rules(self, _):
@@ -54,19 +54,20 @@ class Shell(cmd.Cmd):
     def do_roll(self, _):
         """Roll the dice."""
         print("You have rolled..")
-        print(self.die.format(self.game.roll_dice()))
+        a_roll = self.game.roll_dice()
+        print(self.die.format(a_roll))
+        self.game.add_running_score(a_roll)
 
     def do_hold(self, _):
         """Hold the roll results, add to total score."""
-        pass
+        self.game.hold_score()
 
     def do_score(self, _):
         """See the score bord."""
-        print("\nCurrent score:")
-        print(self.game.get_name() + " : " + str(self.game.get_player_score()))
-        print("Opponent : " + str(self.game.get_intelligence_score()))
+        print("Current score, Game " + str(self.game.current_game_is()) + "\n")
+        print("\t" + self.game.get_name() + ": " + str(self.game.get_player_score()))
+        print("\tOpponent: " + str(self.game.get_intelligence_score()))
 
-    # .
     def do_level(self, _):
         """Change the difficulty of the game."""
         pass
