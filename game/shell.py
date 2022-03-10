@@ -38,6 +38,7 @@ class Shell(cmd.Cmd):
         """Init the object."""
         super().__init__()
         self.game = game.Game()
+        self.turn = 0
 
     def do_start(self, _):
         """Start a new game."""
@@ -56,7 +57,10 @@ class Shell(cmd.Cmd):
         print("You have rolled..")
         a_roll = self.game.roll_dice()
         print(self.die.format(a_roll))
-        self.game.add_running_score(a_roll)
+        turn_continue = self.game.add_running_score(a_roll)
+        if not turn_continue:
+            print(f"Your turn is over. {self.game.intelli.computer_name} will be playing now")
+            self.game.intelli.hold()
 
     def do_hold(self, _):
         """Hold the roll results, add to total score."""
@@ -67,14 +71,16 @@ class Shell(cmd.Cmd):
             print("WE HAVE A   W I N N E R !!!")
             print("Current score, Game " + str(self.game.current_game_is())
                   + "\n")
-            print("\t" + self.game.get_name() + ": " +
+            if self.game.get_player_score() >= 100:
+                print("\t" + self.game.get_name() + "is the winner with score: " +
                   str(self.game.get_player_score()))
-            print("\tOpponent: " + str(self.game.get_intelligence_score()))
+            else:
+                print("\Bot won with score: " + str(self.game.get_intelligence_score()))
             print("\n\n\tCongrats!\n\n")
             self.do_start(True)
 
     def do_score(self, _):
-        """See the score bord."""
+        """See the score board."""
         print("Current score, Game " + str(self.game.current_game_is()) + "\n")
         print("\t" + self.game.get_name() + ": " +
               str(self.game.get_player_score()))
