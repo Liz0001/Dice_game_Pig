@@ -11,11 +11,11 @@ import score
 class Game:
     """Game class is where the magic happens."""
 
-    def __init__(self):
+    def __init__(self, cheat=0):
         """Init the objects."""
         self.player = player.Player()
         self.intelli = intelligence.Intelligence()
-        self.dicehand = dicehand.DiceHand()
+        self.dicehand = dicehand.DiceHand(cheat)
 
     def start(self):
         """(Re)Starts the game (all scores to zero)."""
