@@ -1,4 +1,5 @@
 import random
+from dice import Dice
 
 """
     Creating the intellegence for the computer as to
@@ -16,8 +17,10 @@ class Intelligence:
             hence the return type is specified as none.
         """
         random.seed(42)
+        self.computer_name = "Bot"
         self.CURRENT_SCORE_HOLD = 20
         self.sum_scores = 0
+        self.dice = Dice()
 
     def get_number_of_turns(self) -> int:
         """
@@ -26,16 +29,14 @@ class Intelligence:
         """
         return random.randint(1, 10)
 
-    def roll(self) -> int:
-        """
-            The computer will roll its turn.
-        """
+    def roll_dice_bot(self):
+        """Rolling the dice."""
         return self.dice.roll()
+
 
     def when_to_hold(self, current_dice_value: int) -> bool:
         """
-            The computer will hold when it is either out of turn
-            or when it has a sum of 20 in the current turn.
+            The computer will hold when it has a sum of 20 in the current turn.
             """
         self.sum_scores += current_dice_value
         if self.sum_scores >= self.CURRENT_SCORE_HOLD:
