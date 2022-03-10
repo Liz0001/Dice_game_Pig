@@ -4,10 +4,16 @@ from dice import Dice
 """
     Creating the intellegence for the computer as to
     how it would be playing and making decisions.
-    """
+"""
 
 
 class Intelligence:
+    """
+        Printing out the turn for the bot.
+    """
+    die = ("\t+---+\n"
+           "\t| {} |\n"
+           "\t+---+")
 
     def __init__(self) -> None:
         """
@@ -25,18 +31,29 @@ class Intelligence:
             Randomly generating a number which would
             signify the times the computer would roll.
         """
-        return random.randint(1, 10)
+        return random.randint(2, 10)
 
     def roll_dice_bot(self):
         """Rolling the dice."""
         return self.dice.roll()
 
-
-    def when_to_hold(self, current_dice_value: int) -> bool:
+    def hold(self) -> bool:
         """
-            The computer will hold when it has a sum of 20 in the current turn.
-            """
-        self.sum_scores += current_dice_value
-        if self.sum_scores >= self.CURRENT_SCORE_HOLD:
-            return False
-        return True
+            The computer will hold when the randomly generated number
+            of turns are complete. The running score will be added to the
+            final score.if the turn comes as 1, the turn is over and the
+            running score will go to zero.
+        """
+        counter = 0
+        turns = self.get_number_of_turns()
+        running_score = 0
+        while(counter <= turns):
+            result = self.roll_dice_bot()
+            print(self.die.format(result))
+            if result == 1:
+                running_score = 0
+                break
+            else:
+                running_score += result
+            counter += 1
+        self.sum_scores += running_score

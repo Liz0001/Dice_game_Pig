@@ -17,7 +17,9 @@ class DiceHand:
             self.check_turn = 2
 
     def keep_rolling(self, input: bool):
-        """ Confirm from the player if he wants to roll. """
+        """ 
+            Confirm from the player if he wants to roll.
+        """
         if input:
             return self.dice.roll()
         else:
