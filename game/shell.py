@@ -59,23 +59,27 @@ class Shell(cmd.Cmd):
         print(self.die.format(a_roll))
         turn_continue = self.game.add_running_score(a_roll)
         if not turn_continue:
-            print(f"Your turn is over. {self.game.intelli.computer_name} will be playing now")
+            print(f"Your turn is over.  {self.game.intelli.computer_name}" +
+                  " will be playing now")
             self.game.intelli.hold()
 
     def do_hold(self, _):
         """Hold the roll results, add to total score."""
         print("Saving score, opponents turn.")
         self.game.hold_score()
+
         if self.game.who_is_the_winner():
             print("\n***************************")
             print("WE HAVE A   W I N N E R !!!")
             print("Current score, Game " + str(self.game.current_game_is())
                   + "\n")
             if self.game.get_player_score() >= 100:
-                print("\t" + self.game.get_name() + " is the winner with score: " +
+                print("\t" + self.game.get_name() +
+                      " is the winner with score: " +
                       str(self.game.get_player_score()))
             else:
-                print("\nBot won with score: " + str(self.game.get_intelligence_score()))
+                print("\nBot won with score: " +
+                      str(self.game.get_intelligence_score()))
             print("\n\n\tCongrats!\n\n")
             self.do_start(True)
 
@@ -84,22 +88,22 @@ class Shell(cmd.Cmd):
         print("Current score, Game " + str(self.game.current_game_is()) + "\n")
         print("\t" + self.game.get_name() + ": " +
               str(self.game.get_player_score()))
-        print("\t" + self.game.intelli.computer_name + ": " + str(self.game.get_intelligence_score()))
+        print("\t" + self.game.intelli.computer_name + ": " +
+              str(self.game.get_intelligence_score()))
 
     def do_level(self, difficulty):
-        """Change the difficulty of the game."""
+        """Change the difficulty of the game:'easy' and 'hard'."""
         if difficulty in ['easy', 'hard']:
             self.game.dicehand.set_difficulty(difficulty)
             print(f"Difficulty set to {difficulty}")
         else:
             print("Invalid difficulty. Only 'easy' and 'hard' allowed")
-        
 
-
-
+    # ...
     def do_history(self, _):
         """See the game history."""
         pass
+    # ...
 
     def do_name(self, new_name):
         """Player can change their name here. name [new name]."""

@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""Let's play a game of 'Pig'."""
 import random
 from dice import Dice
 
@@ -7,43 +10,44 @@ from dice import Dice
 """
 
 
-
 class Intelligence:
-    """
-        Printing out the turn for the bot.
-    """
+    """Print out the turn for the bot."""
+
     die = ("\t+---+\n"
            "\t| {} |\n"
            "\t+---+")
 
     def __init__(self) -> None:
+        """Initialise the variables.
+
+        It would not be returning anything
+        hence the return type is specified as none.
         """
-            Initializing the variables. It would not be returning anything
-            hence the return type is specified as none.
-        """
-        random.seed(42)
+        # random.seed(42)
         self.computer_name = "Bot"
         self.CURRENT_SCORE_HOLD = 20
         self.sum_scores = 0
         self.dice = Dice()
 
     def get_number_of_turns(self) -> int:
+        """Generate.
+
+        Randomly generating a number which would
+        signify the times the computer would roll.
         """
-            Randomly generating a number which would
-            signify the times the computer would roll.
-        """
-        return random.randint(2, 10)
+        return random.randint(1, 6)
 
     def roll_dice_bot(self):
-        """Rolling the dice."""
+        """Roll the dice."""
         return self.dice.roll()
 
     def hold(self) -> bool:
-        """
-            The computer will hold when the randomly generated number
-            of turns are complete. The running score will be added to the
-            final score.if the turn comes as 1, the turn is over and the
-            running score will go to zero.
+        """Hold turn.
+
+        The computer will hold when the randomly generated number
+        of turns are complete. The running score will be added to the
+        final score.if the turn comes as 1, the turn is over and the
+        running score will go to zero.
         """
         counter = 0
         turns = self.get_number_of_turns()

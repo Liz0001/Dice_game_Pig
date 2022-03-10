@@ -1,19 +1,27 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""Let's play a game of 'Pig'."""
 from dice import Dice
 import random
 
 
 class DiceHand:
-    
+    """Dicehand class."""
+
     cheat_number = 0
 
     def __init__(self) -> None:
+        """Initiatiate the dicehand."""
         self.dice = Dice()
         self.difficulty = "easy"
         self.check_turn = 9999999
-    
+
     def set_difficulty(self, difficulty: str):
-        """ Setting the difficulty of the game. On easy the player can have many cheats in his turn.
-        In difficult the player is only allowed to cheat twice """
+        """Set the difficulty of the game.
+
+        On easy the player can have many cheats in his turn.
+        In difficult the player is only allowed to cheat twice.
+        """
         self.difficulty = difficulty
         if 'easy' in difficulty:
             self.check_turn = 9999999
@@ -21,7 +29,7 @@ class DiceHand:
             self.check_turn = 2
 
     def keep_rolling(self, input: bool):
-        """ Confirm from the player if he wants to roll. """
+        """Confirm from the player if he wants to roll."""
         if self.cheat_number > 0:
             self.temp = self.cheat_number
             self.cheat_number = 0

@@ -46,9 +46,11 @@ class Game:
         """Roll the dice."""
         return self.dicehand.keep_rolling(True)
 
+    # ...
     def get_history(self):
         """Show players history."""
         pass
+    # ... 
 
     def add_running_score(self, run_score):
         """Add to running score till player hits 1."""
@@ -63,7 +65,7 @@ class Game:
         """Add running score to total. Opponent's turn."""
         self.player.add_score(self.running_score)
         self.running_score = 0
-        print(f"It is {self.intelli.computer_name} turn now. ")
+        print(f"\nIt is {self.intelli.computer_name} turn now.")
         self.intelli.hold()
         # hand over the turn to computer
 

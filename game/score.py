@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+"""Let's play a game of 'Pig'."""
 from player import Player
 
 
