@@ -5,7 +5,7 @@
 import player
 import intelligence
 import dicehand
-import score
+import score  # do we need it here ?
 
 
 class Game:
@@ -26,7 +26,7 @@ class Game:
             self.player.score = 0
             self.intelli.sum_scores = 0
             self.th_game += 1
-            # SAVE the current SCORE BY initiating START
+            # SAVE the current SCORE BY initiating START        # what are we doing with the score - history
 
         self.running_score = 0
 
@@ -50,7 +50,7 @@ class Game:
     def get_history(self):
         """Show players history."""
         pass
-    # ... 
+    # ...
 
     def add_running_score(self, run_score):
         """Add to running score till player hits 1."""

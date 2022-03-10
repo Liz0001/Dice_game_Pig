@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """Let's play a game of 'Pig'."""
 from dice import Dice
-import random
+# import random
 
 
 class DiceHand:
