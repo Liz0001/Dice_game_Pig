@@ -19,9 +19,9 @@ class Score:
         score1 = self.games[game1][1]
         score2 = self.games[game2][1]
         if(score2 > score1):
-            print(self.games[game1][0].get_name() + ' is lower than ' + self.games[game2][0].get_name())
+            return(self.games[game2][0].get_name())
         else:
-            print(self.games[game2][0].get_name() + ' is lower than ' + self.games[game1][0].get_name())
+            return(self.games[game1][0].get_name())
 
 
     def show_score(self, game):
