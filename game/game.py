@@ -11,6 +11,8 @@ import score
 
 class Game:
     """Game class is where the magic happens."""
+    running_score = 0
+    th_game = 1
 
     def __init__(self, cheat=0):
         """Init the objects."""
@@ -22,11 +24,13 @@ class Game:
     def start(self):
         """(Re)Starts the game (all scores to zero)."""
         # Name of the function call
-        if ((self.player.get_score() and self.intelli.get_score()) != 0):
+        if (self.player.get_score() > 0 or self.intelli.sum_scores > 0):
             self.player.score = 0
-            self.intelli.score = 0
+            self.intelli.sum_scores = 0
+            self.th_game += 1
             # save the current score also
 
+        self.running_score = 0
         # self.score = score.score()
 
     def cheat(self):
@@ -52,3 +56,29 @@ class Game:
     def get_history(self):
         """Show players history."""
         pass
+
+    def add_running_score(self, run_score):
+        """Add to running score till player hits 1."""
+        if run_score == 1:
+            self.running_score = 0
+            # turn goes to computer!!!!!
+        else:
+            self.running_score += run_score
+
+    def hold_score(self):
+        """Add running score to total. Opponent's time"""
+        self.player.add_score(self.running_score)
+        self.running_score = 0
+        # hand over the turn to computer
+
+    def get_player_score(self):
+        """Get the score."""
+        return self.player.get_score()
+
+    def get_intelligence_score(self):
+        """Get the score."""
+        return self.intelli.sum_scores
+
+    def current_game_is(self):
+        """What number is this game now?."""
+        return self.th_game
