@@ -65,7 +65,7 @@ class Game:
         """Add running score to total. Opponent's turn."""
         self.player.add_score(self.running_score)
         self.running_score = 0
-        # hand over the turn to computer
+        self.intelli.roll_dice_bot()
 
     def get_player_score(self):
         """Get the score."""
