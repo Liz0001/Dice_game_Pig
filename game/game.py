@@ -63,7 +63,7 @@ class Game:
         """Add running score to total. Opponent's turn."""
         self.player.add_score(self.running_score)
         self.running_score = 0
-        print(f"It is {self.intelli.computer_name} turn now. ")
+        print(f"\n It is {self.intelli.computer_name} turn now.\n ")
         self.intelli.hold()
         # hand over the turn to computer
 

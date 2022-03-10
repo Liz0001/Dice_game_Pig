@@ -21,7 +21,6 @@ class Intelligence:
             Initializing the variables. It would not be returning anything
             hence the return type is specified as none.
         """
-        random.seed(42)
         self.computer_name = "Bot"
         self.CURRENT_SCORE_HOLD = 20
         self.sum_scores = 0
@@ -32,7 +31,7 @@ class Intelligence:
             Randomly generating a number which would
             signify the times the computer would roll.
         """
-        return random.randint(2, 10)
+        return random.randint(1, 6)
 
     def roll_dice_bot(self):
         """Rolling the dice."""

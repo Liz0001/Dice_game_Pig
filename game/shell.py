@@ -59,7 +59,7 @@ class Shell(cmd.Cmd):
         print(self.die.format(a_roll))
         turn_continue = self.game.add_running_score(a_roll)
         if not turn_continue:
-            print(f"Your turn is over. {self.game.intelli.computer_name} will be playing now")
+            print(f"Your turn is over. {self.game.intelli.computer_name} will be playing now\n")
             self.game.intelli.hold()
 
     def do_hold(self, _):
@@ -73,7 +73,7 @@ class Shell(cmd.Cmd):
                   + "\n")
             if self.game.get_player_score() >= 100:
                 print("\t" + self.game.get_name() + "is the winner with score: " +
-                  str(self.game.get_player_score()))
+                    str(self.game.get_player_score()))
             else:
                 print("\Bot won with score: " + str(self.game.get_intelligence_score()))
             print("\n\n\tCongrats!\n\n")
@@ -87,15 +87,15 @@ class Shell(cmd.Cmd):
         print("\t" + self.game.intelli.computer_name + ": " + str(self.game.get_intelligence_score()))
 
     def do_level(self, difficulty):
-        """Change the difficulty of the game."""
+        """
+            Change the difficulty of the game.
+            To change the difficulty write level easy and level hard.
+        """
         if difficulty in ['easy', 'hard']:
             self.game.dicehand.set_difficulty(difficulty)
             print(f"Difficulty set to {difficulty}")
         else:
             print("Invalid difficulty. Only 'easy' and 'hard' allowed")
-        
-
-
 
     def do_history(self, _):
         """See the game history."""
