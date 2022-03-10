@@ -72,10 +72,10 @@ class Shell(cmd.Cmd):
             print("Current score, Game " + str(self.game.current_game_is())
                   + "\n")
             if self.game.get_player_score() >= 100:
-                print("\t" + self.game.get_name() + "is the winner with score: " +
+                print("\t" + self.game.get_name() + " is the winner with score: " +
                       str(self.game.get_player_score()))
             else:
-                print("\Bot won with score: " + str(self.game.get_intelligence_score()))
+                print("\nBot won with score: " + str(self.game.get_intelligence_score()))
             print("\n\n\tCongrats!\n\n")
             self.do_start(True)
 
