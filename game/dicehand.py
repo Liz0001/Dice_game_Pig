@@ -12,6 +12,8 @@ class DiceHand:
         self.check_turn = 9999999
     
     def set_difficulty(self, difficulty: str):
+        """ Setting the difficulty of the game. On easy the player can have many cheats in his turn.
+        In difficult the player is only allowed to cheat twice """
         self.difficulty = difficulty
         if 'easy' in difficulty:
             self.check_turn = 9999999
@@ -33,6 +35,12 @@ class DiceHand:
 
     def check_hand(self, cheat: bool):
         """Cheat or not."""
-        if self.cheat_number == 0:
-            self.cheat_number = self.keep_rolling(True)
-        return self.cheat_number
+        if cheat:
+            if self.check_turn > 0:
+                self.check_turn -= 1
+                self.cheat_number = self.keep_rolling(True)
+                return self.cheat_number
+            else:
+                raise Exception("Cheat not available for this turn")
+        else:
+            return None
