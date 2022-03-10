@@ -9,7 +9,7 @@ class Player:
     def __init__(self):
         """Player initiated with default name value."""
         self.name = "Player"
-        self.score = 99
+        self.score = 0
 
     def change_name(self, new_name):
         """Player can change their name."""
