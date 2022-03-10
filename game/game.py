@@ -46,3 +46,14 @@ class Game:
     def get_history(self):
         """Show players history."""
         pass
+
+
+
+
+    def get_player_score(self):
+        """Get the score."""
+        return 8
+    
+    def get_intelligence_score(self):
+        """Get the score."""
+        return 7
