@@ -65,7 +65,8 @@ class Shell(cmd.Cmd):
         if self.game.who_is_the_winner():
             print("\n***************************")
             print("WE HAVE A   W I N N E R !!!")
-            print("Current score, Game " + str(self.game.current_game_is()) + "\n")
+            print("Current score, Game " + str(self.game.current_game_is())
+                  + "\n")
             print("\t" + self.game.get_name() + ": " +
                   str(self.game.get_player_score()))
             print("\tOpponent: " + str(self.game.get_intelligence_score()))
@@ -77,7 +78,7 @@ class Shell(cmd.Cmd):
         print("Current score, Game " + str(self.game.current_game_is()) + "\n")
         print("\t" + self.game.get_name() + ": " +
               str(self.game.get_player_score()))
-        print("\tOpponent: " + str(self.game.get_intelligence_score()))
+        print("\t" + self.game.intelli.computer_name + ": " + str(self.game.get_intelligence_score()))
 
     def do_level(self, difficulty):
         """Change the difficulty of the game."""
