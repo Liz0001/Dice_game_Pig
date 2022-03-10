@@ -4,6 +4,7 @@
 
 import player
 import intelligence
+import dice
 import dicehand
 import score
 
@@ -17,7 +18,8 @@ class Game:
         """Init the objects."""
         self.player = player.Player()
         self.intelli = intelligence.Intelligence()
-        self.dicehand = dicehand.DiceHand(cheat)
+        self.dicehand = dicehand.DiceHand()
+        self.dice = dice.Dice()
 
     def start(self):
         """(Re)Starts the game (all scores to zero)."""
@@ -46,6 +48,10 @@ class Game:
     def roll_dice(self):
         """Rolling the dice."""
         return self.dicehand.keep_rolling(True)
+
+    def roll_dice_bot(self):
+        """Rolling the dice."""
+        return self.dice.roll()
 
     def get_history(self):
         """Show players history."""
