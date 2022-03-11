@@ -1,7 +1,4 @@
 #!/usr/bin/env make
-
-# Change this to be your variant of the python command
-# Set the env variable PYTHON to another value if needed
 # PYTHON=python3 make version
 PYTHON ?= python # python3 py
 
@@ -95,28 +92,30 @@ coverage:
 test: lint coverage
 
 
+
 # ---------------------------------------------------------
 # Work with generating documentation.
 #
 .PHONY: pydoc
 pydoc:
+	@$(call MESSAGE,$@)
 	install -d doc/pydoc
-	$(PYTHON) -m pydoc -w "$(PWD)"
+	$(PYTHON) -m pydoc -w game/*.py
 	mv *.html doc/pydoc
 
 pdoc:
-	rm -rf doc/pdoc
-	pdoc --html -o doc/pdoc .
-
-doc: pdoc pyreverse #pydoc sphinx
+	@$(call MESSAGE,$@)
+	pdoc --force --html --output-dir doc/pdoc game/*.py
 
 pyreverse:
+	@$(call MESSAGE,$@)
 	install -d doc/pyreverse
-	pyreverse *.py
+	pyreverse game/*.py
 	dot -Tpng classes.dot -o doc/pyreverse/classes.png
 	dot -Tpng packages.dot -o doc/pyreverse/packages.png
 	rm -f classes.dot packages.dot
-	ls -l doc/pyreverse
+
+doc: pdoc pyreverse #pydoc sphinx
 
 
 # ---------------------------------------------------------

@@ -1,0 +1,15 @@
+digraph "packages" {
+rankdir=BT
+charset="utf-8"
+"Project-Py-Game.game" [color="black", label="Project-Py-Game.game", shape="box", style="solid"];
+"Project-Py-Game.game.dice" [color="black", label="Project-Py-Game.game.dice", shape="box", style="solid"];
+"Project-Py-Game.game.dicehand" [color="black", label="Project-Py-Game.game.dicehand", shape="box", style="solid"];
+"Project-Py-Game.game.game" [color="black", label="Project-Py-Game.game.game", shape="box", style="solid"];
+"Project-Py-Game.game.intelligence" [color="black", label="Project-Py-Game.game.intelligence", shape="box", style="solid"];
+"Project-Py-Game.game.main" [color="black", label="Project-Py-Game.game.main", shape="box", style="solid"];
+"Project-Py-Game.game.player" [color="black", label="Project-Py-Game.game.player", shape="box", style="solid"];
+"Project-Py-Game.game.score" [color="black", label="Project-Py-Game.game.score", shape="box", style="solid"];
+"Project-Py-Game.game.shell" [color="black", label="Project-Py-Game.game.shell", shape="box", style="solid"];
+"Project-Py-Game.game.dicehand" -> "Project-Py-Game.game.dice" [arrowhead="open", arrowtail="none"];
+"Project-Py-Game.game.intelligence" -> "Project-Py-Game.game.dice" [arrowhead="open", arrowtail="none"];
+}

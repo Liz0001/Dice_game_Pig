@@ -1,0 +1,10 @@
+digraph "classes" {
+rankdir=BT
+charset="utf-8"
+"Project-Py-Game.game.dice.Dice" [color="black", fontcolor="black", label="{Dice|roll_count : int\lturn : int\l|roll(): int\l}", shape="record", style="solid"];
+"Project-Py-Game.game.dicehand.DiceHand" [color="black", fontcolor="black", label="{DiceHand|cheat_number : int, NoneType\lcheck_turn : int\ldice\ldifficulty : str\l|check_hand(cheat: bool)\lkeep_rolling(input: bool)\lset_difficulty(difficulty: str)\l}", shape="record", style="solid"];
+"Project-Py-Game.game.game.Game" [color="black", fontcolor="black", label="{Game|dicehand\lintelli\lplayer\lrunning_score : int\lrunning_score : int\lth_game\lth_game : int\l|add_running_score(run_score)\lchange_the_name(arg)\lcheat()\lcurrent_game_is()\lget_intelligence_score()\lget_name()\lget_player_score()\lhold_score()\lroll_dice()\lstart()\lwho_is_the_winner()\l}", shape="record", style="solid"];
+"Project-Py-Game.game.intelligence.Intelligence" [color="black", fontcolor="black", label="{Intelligence|computer_name : str\ldice\ldie : str\lsum_scores : int\l|get_number_of_turns(): int\lhold(turns, result, running_score): bool\lroll_dice_bot()\l}", shape="record", style="solid"];
+"Project-Py-Game.game.player.Player" [color="black", fontcolor="black", label="{Player|name : str\lscore : int\l|add_score(player_score)\lchange_name(new_name)\lget_name()\lget_player_data()\lget_score()\l}", shape="record", style="solid"];
+"Project-Py-Game.game.shell.Shell" [color="black", fontcolor="black", label="{Shell|die : str\lgame\lintro : str\lprompt\lprompt : str\lrules : str\lturn : int\l|do_EOF(arg)\ldo_cheat(_)\ldo_exit(_)\ldo_hold(_)\ldo_level(difficulty)\ldo_name(new_name)\ldo_q(arg)\ldo_quit(arg)\ldo_roll(_)\ldo_rules(_)\ldo_score(_)\ldo_start(_)\l}", shape="record", style="solid"];
+}
