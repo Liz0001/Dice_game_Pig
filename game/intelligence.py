@@ -25,7 +25,6 @@ class Intelligence:
         """
         # random.seed(42)
         self.computer_name = "Bot"
-        self.CURRENT_SCORE_HOLD = 20
         self.sum_scores = 0
         self.dice = Dice()
 
@@ -35,7 +34,7 @@ class Intelligence:
         Randomly generating a number which would
         signify the times the computer would roll.
         """
-        return random.randint(1, 6)
+        return random.randint(2, 8)
 
     def roll_dice_bot(self):
         """Roll the dice."""
