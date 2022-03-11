@@ -14,6 +14,7 @@ class TestDicehandClass(unittest.TestCase):
         """Instantiate an object and check its properties."""
         res = dicehand.DiceHand()
         exp = dicehand.DiceHand
+        self.assertIsInstance(res, exp)
 
         self.assertEqual(res.difficulty, "easy")
         self.assertEqual(res.check_turn, 9999999)
