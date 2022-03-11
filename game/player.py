@@ -29,4 +29,4 @@ class Player:
 
     def get_player_data(self):
         """Return the player name and current score."""
-        return "{}: {} points".format(self.name, self.score)
+        return f"{self.name}: {self.score} points"

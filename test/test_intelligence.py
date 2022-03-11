@@ -21,20 +21,20 @@ class TestIntelligenceClass(unittest.TestCase):
 
     def test_get_number_of_turns(self):
 
-       intell = intelligence.Intelligence()
-       self.assertGreaterEqual(intell.get_number_of_turns(), 2)
-       self.assertLessEqual(intell.get_number_of_turns(), 8)
+        intell = intelligence.Intelligence()
+        self.assertGreaterEqual(intell.get_number_of_turns(), 2)
+        self.assertLessEqual(intell.get_number_of_turns(), 8)
 
     def test_roll_dice_bot(self):
 
-        """ Testing the number of turns."""
+        """Testing the number of turns."""
         intell = intelligence.Intelligence()
 
         self.assertGreaterEqual(intell.roll_dice_bot(), 1)
         self.assertLessEqual(intell.roll_dice_bot(), 6)
 
     def test_when_to_hold(self):
-        """ Testing that the turn would be up if the score is 20 or more"""
+        """Testing that the turn would be up if the score is 20 or more"""
         intell = intelligence.Intelligence()
         intell.hold(turns=2, result=1, running_score=0)
         self.assertEqual(intell.sum_scores, 0)

@@ -5,6 +5,7 @@
 import player
 import intelligence
 import dicehand
+
 # import score  # do we need it here ?
 
 
@@ -14,7 +15,7 @@ class Game:
     running_score = 0
     th_game = 1
 
-    def __init__(self, cheat=0):
+    def __init__(self):
         """Init the objects."""
         self.player = player.Player()
         self.intelli = intelligence.Intelligence()
@@ -22,12 +23,10 @@ class Game:
 
     def start(self):
         """(Re)Starts the game (all scores to zero)."""
-        if (self.player.get_score() > 0 or self.intelli.sum_scores > 0):
+        if self.player.get_score() > 0 or self.intelli.sum_scores > 0:
             self.player.score = 0
             self.intelli.sum_scores = 0
             self.th_game += 1
-            # SAVE the current SCORE BY initiating START        # what are we doing with the score - history
-
         self.running_score = 0
 
     def cheat(self):
@@ -45,12 +44,6 @@ class Game:
     def roll_dice(self):
         """Roll the dice."""
         return self.dicehand.keep_rolling(True)
-
-    # ...
-    def get_history(self):
-        """Show players history."""
-        pass
-    # ...
 
     def add_running_score(self, run_score):
         """Add to running score till player hits 1."""

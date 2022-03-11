@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 """Let's play a game of 'Pig'."""
 from dice import Dice
+
 # import random
 
 
@@ -22,7 +23,7 @@ class DiceHand:
         In difficult the player is only allowed to cheat twice.
         """
         self.difficulty = difficulty
-        if 'easy' in difficulty:
+        if "easy" in difficulty:
             self.check_turn = 9999999
         else:
             self.check_turn = 2

@@ -12,9 +12,7 @@ class Intelligence:
     Print out the turn for the bot.
     """
 
-    die = ("\t+---+\n"
-           "\t| {} |\n"
-           "\t+---+")
+    die = "\t+---+\n" "\t| {} |\n" "\t+---+"
 
     def __init__(self) -> None:
         """Initialise the variables.
@@ -50,8 +48,9 @@ class Intelligence:
         if not turns:
             turns = self.get_number_of_turns()
         running_score = 0
+        temp = 0
         while counter < turns:
-            if not result:
+            if not result or result == temp:
                 result = self.roll_dice_bot()
             print(self.die.format(result))
             if result == 1:
@@ -59,5 +58,6 @@ class Intelligence:
                 break
             else:
                 running_score += result
+            temp = result
             counter += 1
         self.sum_scores += running_score
