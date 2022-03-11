@@ -30,9 +30,9 @@ class DiceHand:
     def keep_rolling(self, input: bool):
         """Confirm from the player if he wants to roll."""
         if self.cheat_number > 0:
-            self.temp = self.cheat_number
+            temp = self.cheat_number
             self.cheat_number = 0
-            return self.temp
+            return temp
         elif input:
             return self.dice.roll()
         else:

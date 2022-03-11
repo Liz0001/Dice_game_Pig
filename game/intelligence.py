@@ -4,14 +4,13 @@
 import random
 from dice import Dice
 
-"""
-    Creating the intellegence for the computer as to
-    how it would be playing and making decisions.
-"""
-
 
 class Intelligence:
-    """Print out the turn for the bot."""
+    """
+    Creating the intelligence for the computer as to
+    how it would be playing and making decisions.
+    Print out the turn for the bot.
+    """
 
     die = ("\t+---+\n"
            "\t| {} |\n"
@@ -29,10 +28,9 @@ class Intelligence:
         self.dice = Dice()
 
     def get_number_of_turns(self) -> int:
-        """Generate.
-
-        Randomly generating a number which would
-        signify the times the computer would roll.
+        """Randomly generating a number
+        which would signify the times the computer would
+        roll.
         """
         return random.randint(2, 8)
 
@@ -52,7 +50,7 @@ class Intelligence:
         if not turns:
             turns = self.get_number_of_turns()
         running_score = 0
-        while(counter < turns):
+        while counter < turns:
             if not result:
                 result = self.roll_dice_bot()
             print(self.die.format(result))
