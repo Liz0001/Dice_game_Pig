@@ -8,13 +8,13 @@ from dice import Dice
 class DiceHand:
     """Dicehand class."""
 
-    cheat_number = 0
 
     def __init__(self) -> None:
         """Initiatiate the dicehand."""
         self.dice = Dice()
         self.difficulty = "easy"
         self.check_turn = 9999999
+        self.cheat_number = 0
 
     def set_difficulty(self, difficulty: str):
         """Set the difficulty of the game.
