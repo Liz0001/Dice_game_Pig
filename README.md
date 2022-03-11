@@ -104,10 +104,10 @@ The example program can be started like this.
 
 ```
 # Execute the main program
-python guess/main.py
+python game/main.py
 ```
 
-All code is stored below the directory `guess/`.
+All code is stored below the directory `game/`.
 
 
 
