@@ -8,7 +8,6 @@ from dice import Dice
 class DiceHand:
     """Dicehand class."""
 
-
     def __init__(self) -> None:
         """Initiatiate the dicehand."""
         self.dice = Dice()
