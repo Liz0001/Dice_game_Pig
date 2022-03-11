@@ -11,8 +11,30 @@ A template for a Python development project.
 
 Get going
 --------------------------
+To start the game write the following command in the terminal :
+"python main.py"
 
-This is how you can work with the development environment.
+This is how you can play the game:
+- To get help, write help and it will take you to the help table
+- The name can be changed by the command "name" and adding your name after space
+- if you want to change the difficulty, write "level easy" for the easy mode and "level hard" for the hard mode
+- To start the game you need to write roll.
+If you want to hold write hold.
+- if you want to roll again, write roll. 
+
+If you want to cheat, write "cheat" command and it will show you the number that is rolled. You can either play it by putting " roll" command 
+or hold it by using "hold" command.
+
+Intelligence:
+The turns of the computer are randomly generated between 2 and 8.
+After randomly selecting, it will roll dice between 1 to 6. 
+The turn is finished when it either gets 1 or its number of turns generated before ends. 
+
+Difficulty level:
+There are two difficulty levels:
+Easy: Allows the player unlimited cheats
+Hard: Allows the player only 2 cheats per turn
+
 
 
 
