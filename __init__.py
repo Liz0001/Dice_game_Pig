@@ -1,3 +1,4 @@
+"""Dice game package."""
 import sys
 import os
 
