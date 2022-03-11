@@ -40,7 +40,7 @@ class Intelligence:
         """Roll the dice."""
         return self.dice.roll()
 
-    def hold(self) -> bool:
+    def hold(self, turns=None, result=None, running_score=0) -> bool:
         """Hold turn.
 
         The computer will hold when the randomly generated number
@@ -49,10 +49,12 @@ class Intelligence:
         running score will go to zero.
         """
         counter = 0
-        turns = self.get_number_of_turns()
+        if not turns:
+            turns = self.get_number_of_turns()
         running_score = 0
-        while(counter <= turns):
-            result = self.roll_dice_bot()
+        while(counter < turns):
+            if not result:
+                result = self.roll_dice_bot()
             print(self.die.format(result))
             if result == 1:
                 running_score = 0

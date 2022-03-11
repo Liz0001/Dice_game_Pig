@@ -36,9 +36,10 @@ class TestIntelligenceClass(unittest.TestCase):
     def test_when_to_hold(self):
         """ Testing that the turn would be up if the score is 20 or more"""
         intell = intelligence.Intelligence()
-
-
-
+        intell.hold(turns=2, result=1, running_score=0)
+        self.assertEqual(intell.sum_scores, 0)
+        intell.hold(turns=2, result=2, running_score=0)
+        self.assertEqual(intell.sum_scores, 4)
 
 
 if __name__ == "__main__":
