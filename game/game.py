@@ -5,7 +5,7 @@
 import player
 import intelligence
 import dicehand
-import score  # do we need it here ?
+# import score  # do we need it here ?
 
 
 class Game:
