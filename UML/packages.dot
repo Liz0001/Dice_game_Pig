@@ -1,0 +1,28 @@
+digraph "packages" {
+rankdir=BT
+charset="utf-8"
+"game" [color="black", label="game", shape="box", style="solid"];
+"game.game" [color="black", label="game.game", shape="box", style="solid"];
+"game.game.dice" [color="black", label="game.game.dice", shape="box", style="solid"];
+"game.game.dicehand" [color="black", label="game.game.dicehand", shape="box", style="solid"];
+"game.game.game" [color="black", label="game.game.game", shape="box", style="solid"];
+"game.game.intelligence" [color="black", label="game.game.intelligence", shape="box", style="solid"];
+"game.game.main" [color="black", label="game.game.main", shape="box", style="solid"];
+"game.game.player" [color="black", label="game.game.player", shape="box", style="solid"];
+"game.game.score" [color="black", label="game.game.score", shape="box", style="solid"];
+"game.game.shell" [color="black", label="game.game.shell", shape="box", style="solid"];
+"game.test" [color="black", label="game.test", shape="box", style="solid"];
+"game.test.test_dice" [color="black", label="game.test.test_dice", shape="box", style="solid"];
+"game.test.test_dicehand" [color="black", label="game.test.test_dicehand", shape="box", style="solid"];
+"game.test.test_game" [color="black", label="game.test.test_game", shape="box", style="solid"];
+"game.test.test_intelligence" [color="black", label="game.test.test_intelligence", shape="box", style="solid"];
+"game.test.test_player" [color="black", label="game.test.test_player", shape="box", style="solid"];
+"game.test.test_score" [color="black", label="game.test.test_score", shape="box", style="solid"];
+"game.game.dicehand" -> "game.game.dice" [arrowhead="open", arrowtail="none"];
+"game.game.intelligence" -> "game.game.dice" [arrowhead="open", arrowtail="none"];
+"game.test.test_dice" -> "game" [arrowhead="open", arrowtail="none"];
+"game.test.test_dicehand" -> "game" [arrowhead="open", arrowtail="none"];
+"game.test.test_game" -> "game.game" [arrowhead="open", arrowtail="none"];
+"game.test.test_intelligence" -> "game" [arrowhead="open", arrowtail="none"];
+"game.test.test_player" -> "game" [arrowhead="open", arrowtail="none"];
+}
