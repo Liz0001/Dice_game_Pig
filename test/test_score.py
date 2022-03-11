@@ -17,7 +17,7 @@
 #         self.assertIsInstance(res, exp)
 
 #     def test_keep_score(self):
-#         """Test to get name of the player."""
+#         """Test to keep the score of a player."""  
 #         s = score
 #         s.keep_score(player.Player(), 2)
 #         res = s.games
@@ -25,7 +25,7 @@
 #         self.assertEqual(res, exp)
 
 #     def test_compare_score(self):
-#         """Test to get the score of the player."""
+#         """Test to comparetwo games"""
 #         p1 = player.Player()
 #         p1.change_name("P1")
 #         p2 = player.Player()
@@ -39,7 +39,7 @@
 #         self.assertEqual(res, exp)
 
 #     def test_show_score(self):
-#         """Testing if we are able to get name and score."""
+#         """Test to show the game result"""
 #         p = player.Player()
 #         s = score
 #         res = s.show_score(0)
