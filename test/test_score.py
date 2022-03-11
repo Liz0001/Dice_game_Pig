@@ -17,7 +17,7 @@
 #         self.assertIsInstance(res, exp)
 
 #     def test_keep_score(self):
-#         """Test to get name of the player."""  
+#         """Test to get name of the player."""
 #         s = score
 #         s.keep_score(player.Player(), 2)
 #         res = s.games

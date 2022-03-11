@@ -49,7 +49,7 @@ class TestDicehandClass(unittest.TestCase):
         self.assertGreaterEqual(result, 1)
         self.assertLessEqual(result, 6)
         res.check_turn = 0
-        self.assertRaises(Exception, lambda : res.check_hand(True))
+        self.assertRaises(Exception, lambda: res.check_hand(True))
 
 
 if __name__ == "__main__":

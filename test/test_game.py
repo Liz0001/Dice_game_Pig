@@ -6,6 +6,7 @@
 import unittest
 
 from game.game import Game
+
 # from game.player import Player
 # from game.intelligence import Intelligence
 # from game.game import dicehand
